@@ -11,15 +11,20 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{url('addproduct')}}">
+              <form role="form" method="POST" action="{{url('addproducts')}}" enctype='multipart/form-data'>
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputproductName">Product Name</label>
-                    <input type="text" class="form-control" id="productN" placeholder="Enter Product Name">
+                    <input type="text" class="form-control" id="productN" name='pname' placeholder="Enter Product Name">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputCategory">Product Category</label>
-                    <input type="text" class="form-control" id="" placeholder="Enter Category">
+                    <input type="text" class="form-control" id="" name="category" placeholder="Enter Category" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputCategory">Product Quantity</label>
+                    <input type="text" class="form-control" id="" name="quantity" placeholder="Enter quantity" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Product Image</label>

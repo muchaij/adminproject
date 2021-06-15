@@ -22,7 +22,6 @@ Route::get('/backend', function () {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('products',function(){
-
-    Return view('backend.products');
-});
+Route::get('/products','App\Http\Controllers\AddController@products');
+Route::get('datatables/products', [App\Http\Controllers\crudController::class, 'getProducts']);
+Route::post('/addproducts','App\Http\Controllers\crudController@insertData');
