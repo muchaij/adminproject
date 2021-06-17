@@ -1,7 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-@extends('layouts.admin')
-@section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
       <div class="container-fluid">
@@ -95,31 +93,38 @@
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>
-<form  action="{{url('/addsongs')}}" method="POST" enctype="multiparts/form-data">
-<div class="card-body">
-            <div class="form-group">
-                <label  for="email">Song Name:</label>
-                <input type="text" class="form-control" id="sname" name="soname">
-            </div>
-            <div class="form-group">
-                <label  for="pwd">Song Title:</label>
-                <input type="text" class="form-control" name="stitle">
-            </div>
-            <div class="form-group">
-                <label  for="email">Genre :</label>
-                <input type="text" class="form-control"  name="genre">
-            </div>
-            <div class="form-group">
-                <label  for="pwd">Country of Origin:</label>
-                <input type="password" class="form-control" name="corigin">
-            </div>
-            <div class="form-group">
-                <label  for="pwd">Artist Name:</label>
-                <input type="password" class="form-control" name="artist">
-            </div>
-  </div>
-  <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Register Song</button>
-  </div>
-</form>
+   
+   
+      
+                <form  action="{{url('addsongs')}}" method="POST" enctype="multiparts/form-data">
+                @csrf
+                <div class="card-body">
+                            <div class="form-group">
+                                <label  for="email">Song Name:</label>
+                                <input type="text" class="form-control" id="sname" name="soname">
+                            </div>
+                            <div class="form-group">
+                                <label  for="title">Song Title:</label>
+                                <input type="text" class="form-control" name="stitle">
+                            </div>
+                            <div class="form-group">
+                                <label  for="email">Genre :</label>
+                                <input type="text" class="form-control"  name="genre">
+                            </div>
+                            <div class="form-group">
+                                <label  for="coO">Country of Origin:</label>
+                                <input type="text" class="form-control" name="corigin">
+                            </div>
+                            <div class="form-group">
+                                <label  for="artist">Artist Name:</label>
+                                <input type="text" class="form-control" name="artist">
+                            </div>
+                  </div>
+                  <div class="card-footer">
+                        <button type="submit" class="btn btn-primary ">Register Song</button>
+                  </div>
+                </form>
+
+
+
 @endsection

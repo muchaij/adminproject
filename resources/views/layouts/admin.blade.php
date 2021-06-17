@@ -353,7 +353,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Forms
+                Functional Forms
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -365,9 +365,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="{{url('songs/register')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Register Songs</p>
                 </a>
                 
               </li>
