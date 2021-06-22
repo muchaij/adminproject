@@ -41,5 +41,13 @@ class crudController extends Controller
             return '<button class="btn btn-primary">Edit</button>';
         })->escapeColumns([])->make();
     }
+
+    public function getSongs(Request $request){
+        return Datatables::of(\DB::table('songs')->orderBy('sid', 'DESC'))->filter(function($query)use($request){
+            $query->where('sname', 'LIKE', '%'.$request->search.'%')->orWhere('stitle', 'LIKE', '%'.$request->search.'%');
+        })->addColumn('buttons', function(){
+            return '<button class="btn btn-primary">Edit</button>';
+        })->escapeColumns([])->make();
+    }
 }
  

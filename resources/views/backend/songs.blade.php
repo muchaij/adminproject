@@ -93,8 +93,31 @@
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>
+    <div class='text-right'>
+      <input name='search' class='form-control' placeholder='search'>
+        <button class='btn btn-primary' data-toggle='modal' data-target='#addModal'>Add Song</button>
+    </div>
    
-   
+    <table class='table'>
+                <thead>
+                    <tr>
+                        <td>Song Name</td>
+                        <td>Song Title</td>
+                        <td>Genre</td>
+                        <td>Country of Origin</td>
+                        <td>Artist Name</td>
+                    </tr>
+                </thead>
+              </table>
+              <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Song</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       
                 <form  action="{{url('addsongs')}}" method="POST" enctype="multiparts/form-data">
                 @csrf
@@ -124,7 +147,57 @@
                         <button type="submit" class="btn btn-primary ">Register Song</button>
                   </div>
                 </form>
+                </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
 
 
 
 @endsection
+@push('js')
+<script>
+$(document).ready(function () {
+        var table = $('.table').DataTable({
+            processing: true,
+            serverSide: true,
+            oLanguage: {sProcessing: "<i class='fas fa-spinner fa-pulse'></i> Processing..."},
+            dom: 'lrtip',
+            buttons: [
+            ],
+            ajax: //"{{ url('datatables/users') }}",
+                {
+                url: "{{ url('datatables/songs') }}",
+                data: function (d) {
+                        d.search = $('input[name=search]').val();
+                    }
+                },
+        columns: [
+            {data: "sname", name: "sname", orderable: true},
+            {data: "stitle", name: "stitle", orderable: true},
+            {data: "genre", name: "genre", orderable: true},
+            {data: "country_origin", name: "country_origin", orderable: true},
+            {data: "buttons", name: "buttons", orderable: true},
+            /*{data: "myamount", name: "amount", orderable: false},
+            {data: "luggage", name: "luggage", orderable: false},
+            {data: "totals", name: "totals", orderable: false},
+            {data: "mydate", name: "date", orderable: false},*/
+        ]
+        });
+        var timer = null;
+        $('input[name=search]').keyup(function(){
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            table.draw();
+          }, 2000);
+        });
+        $('.search-form').submit(function(e){
+          e.preventDefault();
+          table.draw();
+        });
+    });
+    </script>
+@endpush

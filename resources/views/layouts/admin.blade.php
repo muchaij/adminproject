@@ -726,16 +726,16 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
-<script src="custom/plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('custom/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="custom/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('custom/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="custom/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{asset('custom/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="custom/dist/js/adminlte.js"></script>
+<script src="{{asset('custom/dist/js/adminlte.js')}}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="custom/dist/js/demo.js"></script>
+<script src="{{asset('custom/dist/js/demo.js')}}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->

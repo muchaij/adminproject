@@ -27,3 +27,4 @@ Route::get('datatables/products', [App\Http\Controllers\crudController::class, '
 Route::post('/addproducts','App\Http\Controllers\crudController@insertData');
 Route::get('songs/register','App\Http\Controllers\songController@sIndex');
 Route::post('/addsongs','App\Http\Controllers\songController@insertSong');
+Route::get('datatables/songs', [App\Http\Controllers\crudController::class, 'getSongs']);
