@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(\Auth::user()->role ==1){
+            //return redirect()->to('admin/home');
+        }
+        if(\Auth::user()->role ==2){
+            //return redirect()->to('singer/home');
+        }
+        return view('backend.home');
     }
 }
